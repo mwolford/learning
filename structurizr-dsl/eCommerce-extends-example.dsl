@@ -1,4 +1,4 @@
-workspace extends cct_workspace.dsl  {
+workspace extends customerCare.dsl  {
     model {
         //!include customerCare.dsl
 
