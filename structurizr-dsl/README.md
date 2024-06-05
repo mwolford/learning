@@ -1,5 +1,8 @@
 # Structurizr DSL Learning Notes
 
+> [!NOTE]
+> The examples are not a realy system or solution. This also might not be the best Architecture, this was made just for the purposes of learning DSL.
+
 ## Styling DSL with Tags
 
 In Structurizr DSL, you can style your diagrams using tags. Tags are a way to categorize and style elements and relationships. You can define styles for tags and those styles will be applied to all elements and relationships with that tag.
@@ -19,3 +22,5 @@ For more information on how to use `extends`, refer ot the [Structurizr DSL docu
 In Structurizr DSL, you can extend a workspace using the `extends` directive. This is particularly useful when you want to inherit elements and relationships from another workspace and make modifications in the extending workspace.
 
 For example, if you have a workspace defined in `cct_workspace.dsl`, you can extend it in another DSL file as shown in `eCommerce-extends-example.dsl`. This allows the `eCommerce-extends-example.dsl` to adjust and reuse elements while still respecting the base workspace elements.
+
+
