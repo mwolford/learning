@@ -11,3 +11,6 @@ For syntax highlighting and preview of diagrams within Visual Studio Code, we re
 ### Rendering
 
 The diagrams will not render in github as it needs a tool to do so; which is what the VSCode extension does by sending the DSL code [Structrurizr service](https://www.structurizr.com/dsl).  The other option is to download a hosting tool as listed on [Structurizr Community Tools](https://docs.structurizr.com/community#rendering-tools).
+
+ > [!NOTE]
+ > You can copy the contents of `eCommerce-example.dsl` into the [Structrurizr service](https://www.structurizr.com/dsl) if you want to see a working example without VSCode or other rendering tools.
