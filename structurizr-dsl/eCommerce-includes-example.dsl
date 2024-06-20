@@ -17,7 +17,7 @@ workspace "eCommerce"  {
         }
         productHub = softwareSystem "Sellable Product Hub"
         ecommerce = softwareSystem "eCommerce System"{
-            integrations = container "Wegmans Enterprise Integrations" {
+            integrations = container "Enterprise Integrations" {
                 webhook = component "Webhook" 
                 services = component "Services"
                 productHub -> services "Sends Product Changes Events"
@@ -86,27 +86,9 @@ workspace "eCommerce"  {
             autoLayout
         }
     
-
         styles {
-            
-            relationship "[HTTPS/JSON]" {
-                dashed true
-                color #08427b
-            }
-            relationship "[HTTPS/Event]" {
-                dashed true
-                color #EB0606
-            }
-            element "Person" {
-                background #08427b
-                color #ffffff
-                shape person
-            }
-            element "External System" {
-                background #000000
-                color #ffffff
-                shape RoundedBox
-            }
+            !include style/team-standards.dsl
         }
+        
     }
 }
