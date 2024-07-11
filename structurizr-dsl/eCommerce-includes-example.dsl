@@ -87,7 +87,7 @@ workspace "eCommerce"  {
         }
     
         styles {
-            !include style/team-standards.dsl
+            !include style/team-standards.style
         }
         
     }
