@@ -16,6 +16,7 @@ workspace "Enterprise-Landscape"{
         customerCare -> refundFraud "Reports" "HTTPS/JSON"
         commerceTools -> contentstack "Sends Product Data" "HTTPS/JSON"
         commerceTools -> cooklist "Sends Product Data" "HTTPS/JSON"
+        commerceTools -> algolia "Sends Product Data" "HTTPS/JSON"
     }
     views {
         styles {
