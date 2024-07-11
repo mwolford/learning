@@ -1,4 +1,4 @@
-name: 'Structurizr Validate'
+name: 'Structurizr'
 description: >
   Run a DSL CLI command that needs -workspace, default is 'validate'.  It runs on all DSL in the passed in folder and subfolders.
 
