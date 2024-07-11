@@ -1,8 +1,6 @@
-name: Structurizr Validate
+name: Pull Request
 on: 
-  push:
-    branches:
-      - workflow
+  pull_request
 
 jobs:
 
