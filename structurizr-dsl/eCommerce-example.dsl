@@ -26,7 +26,8 @@ workspace "eCommerce"  {
         }
         productHub = softwareSystem "Sellable Product Hub"
         ecommerce = softwareSystem "eCommerce System"{
-            integrations = container "Wegmans Enterprise Integrations" {
+
+            integrations = container "Enterprise Integrations" {
                 webhook = component "Webhook" 
                 services = component "Services"
                 productHub -> services "Sends Product Changes Events"

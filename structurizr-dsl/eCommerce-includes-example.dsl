@@ -14,19 +14,21 @@ workspace "eCommerce"  {
         productHub = softwareSystem "Sellable Product Hub" "Products that are in a sellable state" 
         
         ecommerce = softwareSystem "eCommerce System" "The eCommerce system" {
+            !docs docs/eCommerce
+            !adrs adrs/eCommerce
             integrations = container "Enterprise Integrations" "The integrations with external systems" "Azure, .NET Core" {
-                webhook = component "Webhook" "The webhook that listens for product changes" ".NET Core"
                 services = component "Services" "The services that integrate with the commerce tools API" ".NET Core"
                 productHub -> services "Sends Product Changes Events" "HTTPS/EVENT"
                 services -> commerceTools "Sends Product Data" "HTTPS/JSON"
-
+                commerceTools -> contentstack "Sends Product Data" "HTTPS/JSON"
+                commerceTools -> cooklist "Sends Product Data" "HTTPS/JSON"
             }
-            eCommerceIntegrations = container "eCommerce Data Integrations" {
+            eCommerceIntegrations = container "eCommerce Data Integrations" "The integrations with external systems" "Azure, .NET Core"{
                 ctservices = component "Integration Services" "The services that integrate with the commerce tools API" ".NET Core"
                 commerceTools -> ctservices "Sends Product Data" "HTTPS/Event" "HTTPS/Event"
                 ctservices -> algolia "Send Product Data" "HTTPS/JSON" "HTTPS/JSON"
             }
-            webapp = container "Website" {
+            webapp = container "Website" "The frontend of the website, a single page application" "REACT/HTML/CSS" {
                 frontend = component "Frontend" "The frontend of the website, a single page application" "REACT/HTML/CSS"
                 bff = component "Backend For Frontend" "The backend for the frontend, a gateway for the frontend to the backend services" "NEXTjs"
                 frontend -> bff "Calls" "HTTPS/JSON" "HTTPS/JSON"

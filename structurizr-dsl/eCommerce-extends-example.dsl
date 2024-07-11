@@ -10,12 +10,14 @@ workspace extends customerCare.dsl  {
         cooklist = softwareSystem "Cooklist" "The Core Recipe Management System" "External System"
         productHub = softwareSystem "Sellable Product Hub" "Products that are in a sellable state"
         ecommerce = softwareSystem "eCommerce System" "The eCommerce system"{
-            integrations = container "Wegmans Enterprise Integrations" "The integrations with external systems" "Azure, .NET Core"{
-                webhook = component "Webhook" "The webhook that listens for product changes" ".NET Core"
+            !docs docs/eCommerce
+            !adrs adrs/eCommerce
+            integrations = container "Enterprise Integrations" "The integrations with external systems" "Azure, .NET Core"{
                 services = component "Services" "The services that integrate with the commerce tools API" ".NET Core"
                 productHub -> services "Sends Product Changes Events" "HTTPS/EVENT"
                 services -> commerceTools "Sends Product Data" "HTTPS/JSON"
-
+                commerceTools -> contentstack "Sends Product Data" "HTTPS/JSON"
+                commerceTools -> cooklist "Sends Product Data" "HTTPS/JSON"
             }
             eCommerceIntegrations = container "eCommerce Data Integrations" "The integrations with external systems" "Azure, .NET Core"{
                 ctservices = component "Integration Services" "The services that integrate with the commerce tools API" ".NET Core"
@@ -42,10 +44,6 @@ workspace extends customerCare.dsl  {
             autoLayout
         }
         systemContext ecommerce "eCommerce-SystemContext" "The system context diagram for the eCommerce System" {
-            include *
-            autoLayout
-        }
-        systemContext customerCare  {
             include *
             autoLayout
         }
