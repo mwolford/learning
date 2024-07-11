@@ -11,8 +11,8 @@ workspace "CustomerCare" {
         ccr -> customerCare "Uses" "Web Browser"
         customerCare -> refundFraud "Reports" "HTTPS/JSON"
     }
-    views {
-        systemContext customerCare {
+    views  {
+        systemContext customerCare "CustomerCare-SystemContext" "The system context diagram for the Customer Care System" {
             include *
             autoLayout lr
         }
