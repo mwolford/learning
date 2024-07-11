@@ -16,6 +16,6 @@ jobs:
         uses: ./.github/actions/structurizr
         with:
           cli-command: 'inspect'
-          rootFolder: './structurizr-dsl'
+          root-folder: './structurizr-dsl'
 
   
