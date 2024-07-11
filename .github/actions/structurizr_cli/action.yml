@@ -1,6 +1,6 @@
 name: 'Structurizr CLI'
 description: >
-  Call Structurizr CLI with the arguments passed as inputs to the action.
+  Call Structurizr CLI with the arguments passed as inputs to the action.  This only works with Commands that need -w (workspace). I made this as a Proof of Concept.
 
 inputs:
   command:
