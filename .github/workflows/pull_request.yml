@@ -1,8 +1,8 @@
 name: Structurizr Validate
-on:
-  push:
+on: 
+  pull_request:
     branches:
-      - mjw/pr_workflow_v2
+      - workflow
 
 jobs:
 
@@ -15,6 +15,6 @@ jobs:
       - name: Run Action
         uses: ./.github/actions/structurizr_inspect
         with:
-          rootFolder: './systems'
+          rootFolder: './structurizr-dsl'
 
   
