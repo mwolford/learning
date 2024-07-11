@@ -2,7 +2,7 @@ name: Structurizr Validate
 on: 
   pull_request:
     branches:
-      - workflow
+      - main
 
 jobs:
 
