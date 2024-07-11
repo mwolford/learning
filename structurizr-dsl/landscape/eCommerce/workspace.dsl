@@ -4,6 +4,8 @@ workspace extends ../system-landscape.dsl {
     }
     model {
         !extend eCommerce {
+            !adrs adrs
+            !docs docs
             integrations = container "Enterprise Integrations" "The integrations with external systems" "Azure, .NET Core"{
                 services = component "Services" "The services that integrate with the commerce tools API" ".NET Core"
                 productHub -> services "Sends Product Changes Events" "HTTPS/EVENT"

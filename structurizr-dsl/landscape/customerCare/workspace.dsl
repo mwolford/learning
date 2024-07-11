@@ -6,6 +6,8 @@ workspace extends ../system-landscape.dsl {
         ccr = person "Customer Care Representative"  "The employee that services customer inquiries"
 
         !extend customerCare {
+            !adrs adrs
+            !docs docs
             ccr -> customerCare "Uses" "Web Browser"
         }
     }
