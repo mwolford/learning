@@ -1,4 +1,7 @@
 workspace "eCommerce"  {
+    configuration {
+        scope softwaresystem
+    }
     model {
         !include models/customerCare.model
 

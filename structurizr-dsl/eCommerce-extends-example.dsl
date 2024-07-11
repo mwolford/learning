@@ -1,18 +1,25 @@
 workspace extends customerCare.dsl  {
+    configuration {
+        scope softwaresystem
+    }
     model {
-        //!include customerCare.dsl
-
-        user = person "User"
+        user = person "User" {
+            description "The user of the system"
+        }
         commerceTools = softwareSystem "Commerce Tools" { 
+            description "The core eCommerce platform, orders, pricing, product detail, etc"
             tags "External System"
         }
         algolia = softwareSystem "Algolia" { 
+            description "The Core Search engine for the website"
             tags "External System"
         }
         contentstack = softwareSystem "Contentstack" { 
+            description "The Core CMS for the website"
             tags "External System"
         }
         cooklist = softwareSystem "Cooklist" { 
+            description "The Core Recipe Management System"
             tags "External System"
         }
         productHub = softwareSystem "Sellable Product Hub"
