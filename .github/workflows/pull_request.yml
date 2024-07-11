@@ -15,6 +15,7 @@ jobs:
       - name: Run Action
         uses: ./.github/actions/structurizr_inspect
         with:
+          cli-command: 'inspect'
           rootFolder: './structurizr-dsl'
 
   
