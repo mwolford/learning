@@ -1,0 +1,20 @@
+name: Structurizr Validate
+on:
+  push:
+    branches:
+      - mjw/pr_workflow_v2
+
+jobs:
+
+  inspectDSL:
+    name: Inspect all DSL files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Action
+        uses: ./.github/actions/structurizr_inspect
+        with:
+          rootFolder: './systems'
+
+  

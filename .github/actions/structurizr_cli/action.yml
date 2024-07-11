@@ -1,0 +1,21 @@
+name: 'Structurizr CLI'
+description: >
+  Call Structurizr CLI with the arguments passed as inputs to the action.
+
+inputs:
+  command:
+    description: 'Arguments for Structurizr CLI'
+    required: true
+    default: ''
+  workspace:
+    description: 'The relative path to the file to run, the workspace'
+    required: true
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+    - '-w'
+    - ${{ inputs.workspace }}
