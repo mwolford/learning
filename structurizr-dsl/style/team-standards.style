@@ -1,8 +1,8 @@
-relationship "[HTTPS/JSON]" {
+relationship "HTTPS/JSON" {
     dashed true
     color #08427b
 }
-relationship "[HTTPS/Event]" {
+relationship "HTTPS/Event" {
     dashed true
     color #EB0606
 }

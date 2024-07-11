@@ -1,0 +1,41 @@
+name: 'Structurizr'
+description: >
+  Run a DSL CLI command that needs -workspace, default is 'validate'.  It runs on all DSL in the passed in folder and subfolders.
+
+inputs:
+  root-folder:
+    description: 'Root Folder to Scan for DSL files'
+    required: true
+    default: ''
+  cli-command:
+    description: 'A CLI Command that needs a -workspace'
+    required: true
+    default: 'validate'
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        $ErrorActionPreference = 'Stop'
+        "::group::Downloading CLI Docker"
+        docker pull structurizr/cli:latest
+        "::endgroup::"
+        $files = Get-ChildItem -Path ${{ inputs.root-folder }} -File -Recurse -Filter *.dsl | Resolve-Path -Relative
+        $response = $files | foreach-object -parallel {
+          $output = docker run -v .:/workspace -w /workspace structurizr/cli:latest ${{ inputs.cli-command }} -w $_ *>&1
+          @{
+            file = $_
+            exitCode = $LASTEXITCODE
+            output = $output
+          }
+        }
+        $response | Where-Object exitCode -ne 0 | Foreach-object {
+          "::group::$($_.file)"
+          $_.output
+          "::endgroup::"
+        } 
+        if (($response | Measure-Object exitCode -Sum).Sum -gt 0) {
+          throw "One or more DSL files has issues"
+        }
+      shell: pwsh
+
