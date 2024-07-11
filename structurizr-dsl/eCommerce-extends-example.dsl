@@ -45,7 +45,7 @@ workspace extends customerCare.dsl  {
             include *
             autoLayout
         }
-        systemContext customerCare "CustomerCare-SystemContext" "The system context diagram for the Customer Care System" {
+        systemContext customerCare  {
             include *
             autoLayout
         }
