@@ -1,6 +1,6 @@
 workspace "eCommerce"  {
     model {
-        !include models/customerCare.dsl
+        !include models/customerCare.model
 
         user = person "User"
         commerceTools = softwareSystem "Commerce Tools" { 
