@@ -1,11 +1,12 @@
 workspace "eCommerce"  {
     model {
-        ccr = person "Customer Care Representative"
+        ccr = person "Customer Care Representative"  "The employee that services customer inquiries"
 
-        customerCare = softwareSystem "Customer Care System"
-        refundFraud = softwareSystem "Refund Fraud System"
+        customerCare = softwareSystem "Customer Care System" "The system that manages customer inquiries"
+        refundFraud = softwareSystem "Refund Fraud System" "The system that manages refund fraud" 
 
-        ccr -> customerCare "Uses"
+        ccr -> customerCare "Uses" "Web Browser"
+        
         user = person "User"
          commerceTools = softwareSystem "Commerce Tools" { 
             description "The core eCommerce platform, orders, pricing, product detail, etc"
@@ -49,7 +50,8 @@ workspace "eCommerce"  {
         user -> customerCare "Contacts"
         user -> ccr "Contacts"
         ecommerce -> refundFraud "Checks"
-        customerCare -> refundFraud "Reports"
+        customerCare -> refundFraud "Reports" "HTTPS/JSON"
+
     }
 
     views {
