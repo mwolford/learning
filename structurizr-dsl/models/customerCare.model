@@ -1,7 +1,8 @@
 //Models for Customer Care Tool
-ccr = person "Customer Care Representative"
+ccr = person "Customer Care Representative"  "The employee that services customer inquiries"
 
-customerCare = softwareSystem "Customer Care System"
-refundFraud = softwareSystem "Refund Fraud System"
+customerCare = softwareSystem "Customer Care System" "The system that manages customer inquiries"
+refundFraud = softwareSystem "Refund Fraud System" "The system that manages refund fraud" 
 
-ccr -> customerCare "Uses"
+ccr -> customerCare "Uses" "Web Browser"
+customerCare -> refundFraud "Reports" "HTTPS/JSON"

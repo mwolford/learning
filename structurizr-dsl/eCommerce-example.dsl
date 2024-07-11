@@ -41,7 +41,7 @@ workspace "eCommerce"  {
                 frontend = component "Frontend"
                 bff = component "Backend For Frontend"
                 frontend -> bff "Calls" "HTTPS/JSON" "HTTPS/JSON"
-                bff -> services "Calls" "HTTPS/JSON" "[HTTPS/JSON]"
+                bff -> services "Calls" "HTTPS/JSON" "HTTPS/JSON"
             }
          }
 
