@@ -7,16 +7,20 @@ workspace "eCommerce"  {
 
         ccr -> customerCare "Uses"
         user = person "User"
-        commerceTools = softwareSystem "Commerce Tools" { 
+         commerceTools = softwareSystem "Commerce Tools" { 
+            description "The core eCommerce platform, orders, pricing, product detail, etc"
             tags "External System"
         }
         algolia = softwareSystem "Algolia" { 
+            description "The Core Search engine for the website"
             tags "External System"
         }
         contentstack = softwareSystem "Contentstack" { 
+            description "The Core CMS for the website"
             tags "External System"
         }
         cooklist = softwareSystem "Cooklist" { 
+            description "The Core Recipe Management System"
             tags "External System"
         }
         productHub = softwareSystem "Sellable Product Hub"
@@ -30,22 +34,14 @@ workspace "eCommerce"  {
             }
             eCommerceIntegrations = container "eCommerce Data Integrations" {
                 ctservices = component "Integration Services"
-                commerceTools -> ctservices "[HTTPS/Event] Sends Product Data" {
-                    tags "HTTPS/Event"
-                }
-                ctservices -> algolia "[HTTPS/JSON] Send Product Data"{
-                    tags "HTTPS/JSON"
-                }
+                commerceTools -> ctservices "Sends Product Data" "HTTPS/Event" "HTTPS/Event"
+                ctservices -> algolia "Send Product Data" "HTTPS/JSON" "HTTPS/JSON"
             }
             webapp = container "Website" {
                 frontend = component "Frontend"
                 bff = component "Backend For Frontend"
-                frontend -> bff "[HTTPS/JSON] Calls"{
-                    tags "[HTTPS/JSON]"
-                }
-                bff -> services "[HTTPS/JSON] Calls"{
-                    tags "[HTTPS/JSON]"
-                }
+                frontend -> bff "Calls" "HTTPS/JSON" "HTTPS/JSON"
+                bff -> services "Calls" "HTTPS/JSON" "[HTTPS/JSON]"
             }
          }
 

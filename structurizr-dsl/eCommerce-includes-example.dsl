@@ -6,16 +6,20 @@ workspace "eCommerce"  {
         !include models/customerCare.model
 
         user = person "User"
-        commerceTools = softwareSystem "Commerce Tools" { 
+         commerceTools = softwareSystem "Commerce Tools" { 
+            description "The core eCommerce platform, orders, pricing, product detail, etc"
             tags "External System"
         }
         algolia = softwareSystem "Algolia" { 
+            description "The Core Search engine for the website"
             tags "External System"
         }
         contentstack = softwareSystem "Contentstack" { 
+            description "The Core CMS for the website"
             tags "External System"
         }
         cooklist = softwareSystem "Cooklist" { 
+            description "The Core Recipe Management System"
             tags "External System"
         }
         productHub = softwareSystem "Sellable Product Hub"
