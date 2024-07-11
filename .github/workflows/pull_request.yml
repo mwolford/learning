@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run Action
-        uses: ./.github/actions/structurizr_inspect
+        uses: ./.github/actions/structurizr
         with:
           cli-command: 'inspect'
           rootFolder: './structurizr-dsl'
