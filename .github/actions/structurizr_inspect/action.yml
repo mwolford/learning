@@ -1,12 +1,16 @@
-name: 'Structurizr Inspect'
+name: 'Structurizr Validate'
 description: >
-  Validate all DSL in the passed in folder and subfolders
+  Run a DSL CLI command that needs -workspace, default is 'validate'.  It runs on all DSL in the passed in folder and subfolders.
 
 inputs:
-  rootFolder:
+  root-folder:
     description: 'Root Folder to Scan for DSL files'
     required: true
     default: ''
+  cli-command:
+    description: 'A CLI Command that needs a -workspace'
+    required: true
+    default: 'validate'
 
 runs:
   using: composite
@@ -16,9 +20,9 @@ runs:
         "::group::Downloading CLI Docker"
         docker pull structurizr/cli:latest
         "::endgroup::"
-        $files = Get-ChildItem -Path ${{ inputs.rootFolder }} -File -Recurse -Filter *.dsl | Resolve-Path -Relative
+        $files = Get-ChildItem -Path ${{ inputs.root-folder }} -File -Recurse -Filter *.dsl | Resolve-Path -Relative
         $response = $files | foreach-object -parallel {
-          $output = docker run -v .:/workspace -w /workspace structurizr/cli:latest validate -w $_ *>&1
+          $output = docker run -v .:/workspace -w /workspace structurizr/cli:latest ${{ inputs.cli-command }} -w $_ *>&1
           @{
             file = $_
             exitCode = $LASTEXITCODE
