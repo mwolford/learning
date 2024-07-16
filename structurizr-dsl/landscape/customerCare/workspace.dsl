@@ -3,13 +3,14 @@ workspace extends ../system-landscape.dsl {
         scope softwaresystem
     }
     model {
-        ccr = person "Customer Care Representative"  "The employee that services customer inquiries"
-
+        
         !extend customerCare {
             !adrs adrs
             !docs docs
             ccr -> customerCare "Uses" "Web Browser"
+            
         }
+        customerCare -> newSystem "Uses" "HTTPS/JSON"
     }
     views {
         systemContext customerCare "CustomerCare-SystemContext" "The system context diagram for the Customer Care system" {

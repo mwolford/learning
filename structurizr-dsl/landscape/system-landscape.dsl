@@ -4,19 +4,13 @@ workspace "Enterprise-Landscape"{
     }
     model {
         customer = person "Customer" "A customer that uses our systems to purchase products"
+        csr = person "Customer SErvices Rep" "A customer service representative that uses our systems to manage customer orders"
 
-        eCommerce = softwareSystem "eCommerce" "Allows customers to purchase products online"
-        customerCare = softwareSystem "Customer Care" "Allows customers to view and manage their orders"
-        refundFraud = softwareSystem "Refund Fraud System" "The system that manages refund fraud" "External System" 
-        commerceTools = softwareSystem "Commerce Tools" "The core eCommerce platform, orders, pricing, product detail, etc" "External System"
-        algolia = softwareSystem "Algolia" "The Core Search engine for the website" "External System"
-        contentstack = softwareSystem "Contentstack" "The Core CMS for the website" "External System"
-        cooklist = softwareSystem "Cooklist" "The Core Recipe Management System" "External System"
-        productHub = softwareSystem "Sellable Product Hub" "Products that are in a sellable state"
-        customerCare -> refundFraud "Reports" "HTTPS/JSON"
-        commerceTools -> contentstack "Sends Product Data" "HTTPS/JSON"
-        commerceTools -> cooklist "Sends Product Data" "HTTPS/JSON"
-        commerceTools -> algolia "Sends Product Data" "HTTPS/JSON"
+        !include eCommerce/models/eCommerce.dsl
+        !include customerCare/models/customerCare.dsl
+        !include central-apim/models/central-apim.dsl
+
+
     }
     views {
         styles {
