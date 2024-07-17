@@ -1,0 +1,9 @@
+{
+  "name" : "Companies",
+  "description" : "SaaS systems",
+  "elements" : [ {
+    "tag" : "SAP",
+    "background" : "#4e76e2",
+    "icon" : "https://cdn.iconscout.com/icon/free/png-512/free-sap-3521690-2945134.png"
+  } ]
+}
