@@ -1,0 +1,1 @@
+central-apim = softwareSystem "Central APIM" "Central API Management System for Enterprise Capabitiles between systems" "Azure API Management, Azure FrontDoor, Azure Entra"
