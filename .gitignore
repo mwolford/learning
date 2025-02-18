@@ -1,0 +1,3 @@
+structurizr-dsl/landscape/**/*.json
+!themes/**/*.json
+structurizr-dsl/landscape/.structurizr/

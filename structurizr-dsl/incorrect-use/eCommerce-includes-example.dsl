@@ -15,7 +15,7 @@ workspace "eCommerce"  {
         
         ecommerce = softwareSystem "eCommerce System" "The eCommerce system" {
             !docs docs/eCommerce
-            !adrs adrs/eCommerce
+            !adrs adrs
             integrations = container "Enterprise Integrations" "The integrations with external systems" "Azure, .NET Core" {
                 services = component "Services" "The services that integrate with the commerce tools API" ".NET Core"
                 productHub -> services "Sends Product Changes Events" "HTTPS/EVENT"

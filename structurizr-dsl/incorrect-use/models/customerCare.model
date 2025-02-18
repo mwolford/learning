@@ -6,3 +6,6 @@ refundFraud = softwareSystem "Refund Fraud System" "The system that manages refu
 
 ccr -> customerCare "Uses" "Web Browser"
 customerCare -> refundFraud "Reports" "HTTPS/JSON"
+
+newsystem = softwareSystem "New System" "The new system"
+customerCare -> newsystem "uses" "HTTP/JSON"

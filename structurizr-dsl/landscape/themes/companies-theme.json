@@ -1,0 +1,12 @@
+{
+  "name" : "Companies",
+  "description" : "SaaS systems",
+  "elements" : [ {
+    "tag" : "SAP",
+    "icon" : "https://companieslogo.com/img/orig/SAP-be0cdcc9.png"
+  }, {
+    "tag" : "Workday",
+    "icon" : "https://companieslogo.com/img/orig/WDAY_BIG-d7476118.png"
+  }
+  ]
+}
